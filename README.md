@@ -1,7 +1,6 @@
 # GPACalculator_LinkedList
 
 ### Written by Charlie Mathis with Mathis Computing
-### Program Created By : Charlie Mathis IV with Mathis Computing Co
 ### Check out my website!--->https://dogtowncs.netlify.com/
 
 This program was written entirely in C++ and edited within nano.  
