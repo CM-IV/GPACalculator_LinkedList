@@ -15,3 +15,5 @@ Remove GPA int value from front of the list.
 Display list of all entered GPA values.
 
 Take the average of all the values.
+
+### Compile the *.cpp files to run!!!
