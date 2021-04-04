@@ -4,9 +4,8 @@
    My email is on that website.
 
 
-   Copyright Mathis Computing 2020 --> Whenever
-
-   Please leave this notice here.
+   Copyleft Mathis Computing 2020 --> Whenever
+   GPLv3
 */
 
 
