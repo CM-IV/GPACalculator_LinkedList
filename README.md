@@ -3,7 +3,9 @@
 ### Written by Charlie Mathis with Mathis Computing
 ### Check out my website!--->https://dogtowncs.netlify.com/
 
-This program was written entirely in C++ and edited within nano.  
+This program was written entirely in C++ and edited within nano.
+
+GPLv3 Licensed 
 
 The program takes in 5 integers acting as the users GPA for those semesters.
 
