@@ -1,6 +1,6 @@
 # GPACalculator_LinkedList
 
-### Written by Charlie Mathis with Occident Tech Software
+### Written by Charlie with Occident Tech Software
 ### Check out my website!--->https://landing.civdev.xyz
 
 This program was written entirely in C++ and edited within nano.
