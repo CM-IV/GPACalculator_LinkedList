@@ -1,11 +1,6 @@
 /*
-   Program Created By : Charlie Mathis IV with Mathis Computing Co
-   Check out my website!--->https://dogtowncs.netlify.com/
-   My email is on that website.
-
-
-   Copyleft Mathis Computing 2020 --> Whenever
-   GPLv3
+   Program Created By : Charlie with Occident Tech Software
+   Check out my website!--->https://home.civdev.xyz
 */
 
 #include <stdlib.h>
