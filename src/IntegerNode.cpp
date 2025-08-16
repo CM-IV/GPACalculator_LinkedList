@@ -1,17 +1,9 @@
-/*
-   Program Created By : Charlie with Occident Tech Software
-   Check out my website!--->https://home.civdev.xyz
-*/
-
-
-#include <cstddef>
-#include "IntegerNode.h"
-
+#include "../include/IntegerNode.h"
 
 IntegerNode::IntegerNode()
 {
    gpa = 0;
-   next = NULL;
+   next = nullptr;
 
 }
 
@@ -19,7 +11,7 @@ IntegerNode::IntegerNode()
 IntegerNode::IntegerNode(int p)
 {
    gpa = p;
-   next = NULL;
+   next = nullptr;
 
 }
 
@@ -27,3 +19,22 @@ IntegerNode::~IntegerNode()
 {
 }
 
+int IntegerNode::get_gpa() const
+{
+   return gpa;
+}
+
+IntegerNode* IntegerNode::get_next() const
+{
+   return next;
+}
+
+void IntegerNode::set_gpa(int new_gpa)
+{
+   gpa = new_gpa;
+}
+
+void IntegerNode::set_next(IntegerNode* new_next)
+{
+   next = new_next;
+}

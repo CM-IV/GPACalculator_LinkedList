@@ -1,7 +1,7 @@
 #ifndef INTEGERLINKEDLIST_H
 #define INTEGERLINKEDLIST_H
 
-
+// Declaration
 class IntegerNode;
 
 class IntegerLinkedList{
@@ -9,24 +9,16 @@ class IntegerLinkedList{
    public:
       IntegerLinkedList();
       ~IntegerLinkedList();
-      bool IsEmpty();
+      bool IsEmpty() const;
       void AddFront();
       void RemoveFront();
-      void DisplayIntegerLinkedList();
-      void DisplayAverage();
+      void DisplayIntegerLinkedList() const;
+      void DisplayAverage() const;
       void MakeChoice();
    private:
       IntegerNode *head;
       int choice;
-      int sum = 0;
-      int count = 0;
-      int iter = 0;
-      float average = 0.0;
-
 };
 
 
-
-
-
-#endif
+#endif //INTEGERLINKEDLIST_H

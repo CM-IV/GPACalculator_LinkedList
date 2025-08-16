@@ -1,27 +1,15 @@
 /*
-   Program Created By : Charlie with Occident Tech Software
-   Check out my website!--->https://home.civdev.xyz
+   Program Created By : Charlie
 */
 
 #include <stdlib.h>
-#include <iostream>
-
-
-#include "IntegerLinkedList.h"
-#include "IntegerNode.h"
-
-
-
+#include "../include/IntegerLinkedList.h"
 
 int main()
 {
-
    IntegerLinkedList list;
 
    list.MakeChoice();
-
-
-
 
    return 0;
 }

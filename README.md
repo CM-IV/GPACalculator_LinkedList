@@ -1,9 +1,9 @@
 # GPACalculator_LinkedList
 
-### Written by Charlie with Occident Tech Software
-### Check out my website!--->https://landing.civdev.xyz
+### Written by Charlie
+### Check out my website!--->https://home.civdev.xyz
 
-This program was written entirely in C++ and edited within nano.
+This program was written entirely in C++.
 
 GPLv3 Licensed 
 

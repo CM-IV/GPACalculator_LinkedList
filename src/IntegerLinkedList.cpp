@@ -1,168 +1,141 @@
-/*
-   Program Created By : Charlie with Occident Tech Software
-   Check out my website!--->https://home.civdev.xyz
-
-*/
-
-
-
-#include "IntegerLinkedList.h"
-#include <cstddef>
+#include "../include/IntegerLinkedList.h"
+#include "../include/IntegerNode.h"
 #include <iostream>
-#include "IntegerNode.h"
-
 
 IntegerLinkedList::IntegerLinkedList()
 {
-   head = NULL;
-
+   head = nullptr;
 }
 
 
 IntegerLinkedList::~IntegerLinkedList()
 {
    while (!IsEmpty()) RemoveFront();
-
 }
-
 
 void IntegerLinkedList::MakeChoice()
 {
+   while (true) {
+        std::cout << "\n----Welcome to Charlie's GPA Calculator----\n"
+                  << "----Enter an integer number to choose an operation----\n"
+                  << "1. Add GPA score to front of the list.\n"
+                  << "2. Remove value from front of the list.\n"
+                  << "3. Display List of GPA values.\n"
+                  << "4. Find the average GPA value of the list.\n"
+                  << "Enter any other integer number to quit.\n";
 
+        std::cin >> choice;
 
+        if (choice < 1 || choice > 4) {
+            std::cout << "Quitting...\n";
+            break;
+        }
 
-   while (true){
-
-     std::cout << "     ----Welcome to Charlie's GPA Calculator----" << std::endl
-               << "----Enter an integer number to chose an operation----" << std::endl;
-
-     std::cout << "1. Add GPA score to front of the list." << std::endl
-               << "2. Remove value from front of the list." << std::endl
-               << "3. Display List of GPA values." << std::endl
-               << "4. Find the average GPA value of the list." << std::endl
-               << "Enter any other integer number to quit." << std::endl;
-
-
-     std::cin >> choice;
-
-     if (choice < 1 || choice > 4){
-
-        break;
-
-     }
-
-     switch(choice){
-
-        case 1: AddFront();
+        switch (choice) {
+            case 1:
+                AddFront();
                 break;
-        case 2: RemoveFront();
+            case 2:
+                RemoveFront();
                 break;
-        case 3: DisplayIntegerLinkedList();
+            case 3:
+                DisplayIntegerLinkedList();
                 break;
-        case 4: DisplayAverage();
+            case 4:
+                DisplayAverage();
                 break;
-        default:
-        std::cout << "Quitting..." << std::endl;
+            default:
+                std::cout << "Invalid choice. Please try again.\n";
                 break;
-
-     }
-
-   }
-
+        }
+    }
 }
 
-
-bool IntegerLinkedList::IsEmpty()
+bool IntegerLinkedList::IsEmpty() const
 {
-
-   return head == NULL;
-
+   return head == nullptr;
 }
-
-
 
 void IntegerLinkedList::AddFront()
 {
-
    int tempvar;
-   iter = 0;
 
-   while (iter < 5){
+   while (true){
       std::cout << "Enter an integer representative of"
                 << " your GPA with values 0 through 4: " << std::endl;
 
       std::cin >> tempvar;
 
-      if (tempvar < 0 || tempvar > 4){
-
-         MakeChoice();
-
-      }else {
-
-         IntegerNode *v = new IntegerNode;
-         v->gpa = tempvar;
-         v->next = head;
-         head = v;
-
+      if (tempvar >= 0 && tempvar <= 4)
+      {
+         break;
+      } else {
+         std::cout << "Invalid GPA, enter a value between 0 and 4.\n";
       }
-      iter++;
-
    }
 
-   return;
+   IntegerNode *v = new IntegerNode(tempvar);
 
-  /* IntegerNode *v = new IntegerNode;
-   v->gpa = e;
-   v->next = head;
-   head = v;*/
-
+   v->set_next(head);
+   head = v;
 }
 
 
 void IntegerLinkedList::RemoveFront()
 {
-
-   if (!IsEmpty()){
-
-       IntegerNode *oldptr = head;
-       head = oldptr->next;
-       delete oldptr;
-    };
-
-
-}
-
-void IntegerLinkedList::DisplayIntegerLinkedList()
-{
-   IntegerNode *tempnode;
-   tempnode = head;
-
-   while (tempnode != NULL){
-
-      std::cout << "-->" << tempnode->gpa << "--";
-      tempnode = tempnode->next;
-
-    };
-    std::cout << std::endl << std::endl;
-
-}
-
-
-void IntegerLinkedList::DisplayAverage()
-{
-   IntegerNode *tempcurr;
-   tempcurr = head;
-
-   while (tempcurr != NULL){
-      count++;
-      sum += tempcurr->gpa;
-      tempcurr = tempcurr->next;
+   if (IsEmpty())
+   {
+      std::cout << "List is empty, cannot remove front.\n";
+      return;
    }
 
-   average = (double)sum / count;
+   IntegerNode* old_ptr = head;
+   head = old_ptr->get_next();
+   delete old_ptr;
+   std::cout << "Front element removed.\n";
+}
 
-   std::cout << "\nThe average gpa is " << average <<std::endl
-             << "If the average is zero, either you try really hard"
-             << " to not give effort, or the list is empty." << std::endl;
+void IntegerLinkedList::DisplayIntegerLinkedList() const
+{
+   if (IsEmpty()) {
+        std::cout << "List is empty.\n";
+        return;
+    }
 
+    std::cout << "GPA List: ";
+    IntegerNode* currentNode = head;
+    while (currentNode != nullptr)
+    {
+        std::cout << "-->" << currentNode->get_gpa() << "--";
+        currentNode = currentNode->get_next();
+    }
+    std::cout << "nullptr\n";
+}
+
+
+void IntegerLinkedList::DisplayAverage() const
+{
+   if (IsEmpty()) {
+        std::cout << "List is empty. Average is 0.0.\n";
+        return;
+    }
+
+    int sum = 0;
+    int count = 0;
+    float average = 0.0f;
+
+    IntegerNode* currentNode = head;
+    while (currentNode != nullptr) {
+        sum += currentNode->get_gpa();
+        count++;
+        currentNode = currentNode->get_next();
+    }
+
+    if (count > 0)
+    {
+      average = static_cast<float>(sum) / count;
+      std::cout << "\nThe average GPA is: " << average << "\n";
+    } else {
+      std::cout << "\nError calculating average: Count is zero.\n";
+    }
 }
